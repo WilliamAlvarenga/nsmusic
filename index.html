@@ -442,6 +442,58 @@
       padding-top: 20px;
     }
 
+    /* Estilos da Seção "Como Chegar" e Alinhamento do Rodapé */
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-email {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.footer-location {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.footer-location h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-yellow);
+}
+
+.footer-location p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-location p i {
+  color: var(--pastel-blue);
+  margin-right: 6px;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pastel-blue);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 4px;
+  transition: var(--transition);
+}
+
+.map-link:hover {
+  color: var(--accent-yellow);
+  text-decoration: underline;
+}
+
     /* --------------------------------------------------
        8. Ajustes de Responsividade
     -------------------------------------------------- */
@@ -614,19 +666,30 @@
   <footer id="contato" class="footer">
     <div class="container">
      <div class="footer-content">
-  <div class="footer-brand">
-    <div class="logo">Nossa Música<span>.</span></div>
-    <div class="social-links">
-      <a href="https://wa.me/5521988748984?text=Olá%20quero%20mais%20Informações!" target="_blank" aria-label="WhatsApp" class="social-icon wa">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-      <a href="https://instagram.com/nossamusica.escola" target="_blank" aria-label="Instagram" class="social-icon ig">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
+      <div class="footer-brand">
+        <div class="logo">Nossa Música<span>.</span></div>
+        <div class="social-links">
+          <a href="https://wa.me/5521988748984?text=Olá%20quero%20mais%20Informações!" target="_blank" aria-label="WhatsApp" class="social-icon wa">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/nossamusica.escola" target="_blank" aria-label="Instagram" class="social-icon ig">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <p class="footer-email">contato@nossamusicabr.com.br</p>
     </div>
-  </div>
-  <p style="color: var(--text-muted); font-size: 0.95rem;">contato@nossamusicabr.com.br</p>
-</div>
+
+
+        <div class="footer-location">
+          <h3>Como Chegar</h3>
+          <p><i class="fa-solid fa-location-dot"></i> Rua. Equador, 43 - lj 115  - Santo Cristo, Rio de Janeiro - RJ</p>
+          <a href="https://maps.google.com/?q=Rua.+Equador,+43+-+lj+115+-+Santo+Cristo,+Rio+de+Janeiro+-+RJ" target="_blank" class="map-link">
+            Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+
       <div class="footer-copy">
         <p>&copy; 2026 Nossa Música Escola de Música. Todos os direitos reservados.</p>
       </div>
