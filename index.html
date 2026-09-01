@@ -13,7 +13,7 @@
   <style>
   
     :root {
-      --bg-primary: #0b1329;        /* Azul escuro profundo */
+      --bg-primary: #003650;        
       --bg-card: #152238;           /* Azul noturno */
       --text-main: #f8fafc;          /* Branco suave */
       --text-muted: #94a3b8;        /* Cinza azulado */
@@ -45,11 +45,16 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-primary);
       color: var(--text-main);
+      overflow-x: hidden;
+      width: 100%;
     }
 
     body {
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
+      overscroll-behavior-x: none;
     }
 
     a {
@@ -147,13 +152,18 @@
       gap: 16px;
     }
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text-main);
-      z-index: 102;
-    }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  height: 45px; /* Mantém a altura proporcional ao texto de 1.4rem */
+  z-index: 102;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
 
     .logo span {
       color: var(--accent-yellow);
@@ -236,10 +246,14 @@
       justify-content: flex-start;
       transition: var(--transition);
       z-index: 101;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     .nav-menu-wrapper.active {
       right: 0;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .nav-links {
@@ -298,21 +312,6 @@
       flex-wrap: wrap;
     }
 
-/*    .hero-image {
-      width: 100%;
-      height: 380px;
-      background: radial-gradient(circle at center, rgba(147, 197, 253, 0.15) 0%, rgba(21, 34, 56, 0.8) 70%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-yellow);
-      font-size: clamp(3.5rem, 8vw, 5rem);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-      position: relative;
-    }
-      */
 
  /* Container da imagem ajustado (sem borda, sem sombra e sem fundo) */
 .hero-image {
@@ -418,6 +417,15 @@
     /* --------------------------------------------------
        7. Rodapé
     -------------------------------------------------- */
+    
+#como-chegar {
+  scroll-margin-top: 90px;
+}
+
+    footer, #contato {
+  scroll-margin-top: 80px; /* Compensa a altura do cabeçalho fixo */
+}
+    
     .footer {
       border-top: 1px solid var(--border);
       padding: 50px 0 30px;
@@ -442,7 +450,7 @@
       padding-top: 20px;
     }
 
-    /* Estilos da Seção "Como Chegar" e Alinhamento do Rodapé */
+  
 .footer-info {
   display: flex;
   flex-direction: column;
@@ -493,6 +501,23 @@
   color: var(--accent-yellow);
   text-decoration: underline;
 }
+
+
+.social-icon {
+  font-size: 1.8rem; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;       /* Mantém uma área de toque confortável */
+  height: 44px;
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1); /* Dá um leve destaque ao passar o mouse */
+  color: var(--accent-yellow);
+}
+
 
     /* --------------------------------------------------
        8. Ajustes de Responsividade
@@ -546,7 +571,9 @@
   <header class="header">
     <div class="container nav-container">
      
-      <a href="#" class="logo">Nossa Música<span>.</span></a>
+      <a href="#" class="logo">
+        <img src="logoHeader.png" alt="Nossa Música">
+      </a>
       
       <!-- Lado direito do topo: Botão "Aula Experimental" + Ícone do Menu Hambúrguer -->
       <div class="header-actions">       
@@ -568,7 +595,7 @@
             <li><a href="#cursos" class="nav-item">Cursos</a></li>
             <li><a href="#diferenciais" class="nav-item">Diferenciais</a></li>
             <li><a href="#contato" class="nav-item">Contato</a></li>
-              <li><a href="#contato" class="nav-item">Como Chegar</a></li>
+            <li><a href="#como-chegar" class="nav-item">Como Chegar</a></li>
           </ul>
         </nav>
       </div>
@@ -586,7 +613,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="logomarca.jpg" alt="Logo">
+      <img src="logomarca.png" alt="Logo">
     </div>
   </section>
 
@@ -664,11 +691,11 @@
   </section>
 
   <!-- Rodapé -->
-  <footer id="contato" class="footer">
-    <div class="container">
+<footer id="contato" class="footer">
+    <div class="container" style="padding-bottom: 20px;">
      <div class="footer-content">
       <div class="footer-brand">
-        <div class="logo">Nossa Música<span>.</span></div>
+        <div class="logo"> <img src="logoHeader.png" alt="Nossa Música"></div>
         <div class="social-links">
           <a href="https://wa.me/5521988748984?text=Olá%20quero%20mais%20Informações!" target="_blank" aria-label="WhatsApp" class="social-icon wa">
             <i class="fa-brands fa-whatsapp"></i>
@@ -681,21 +708,19 @@
       <p class="footer-email">contato@nossamusicabr.com.br</p>
     </div>
 
-
-        <div class="footer-location">
+    <div class="footer-location" id="como-chegar">
           <h3>Como Chegar</h3>
           <p><i class="fa-solid fa-location-dot"></i> Rua. Equador, 43 - lj 115  - Santo Cristo, Rio de Janeiro - RJ</p>
           <a href="https://maps.google.com/?q=Rua.+Equador,+43+-+lj+115+-+Santo+Cristo,+Rio+de+Janeiro+-+RJ" target="_blank" class="map-link">
             Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
-        </div>
-
-
-      <div class="footer-copy">
-        <p>&copy; 2026 Nossa Música Escola de Música. Todos os direitos reservados.</p>
-      </div>
     </div>
-  </footer>
+
+    <div class="footer-copy">
+      <p>© 2026 Nossa Música Escola de Música. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
 
   <!-- Script JS para Controle do Menu Drawer -->
   <script>
