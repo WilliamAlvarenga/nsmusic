@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
-  
     :root {
       --bg-primary: #003650;        
       --bg-card: #152238;           /* Azul noturno */
@@ -137,15 +136,15 @@
        3. Header & Menu Drawer
     -------------------------------------------------- */
     .header {
-        position: fixed; /* Fixa o cabeçalho no topo da tela */
+        position: fixed;
         top: 0;
         left: 0;
-        width: 100%; /* Ocupa toda a largura da tela */
+        width: 100%;
         background-color: rgba(11, 19, 41, 0.95);
         backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px); /* Suporte para Safari */
+        -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--border);
-        z-index: 1000; /* Garante que ele fique por cima de qualquer outro elemento da página */
+        z-index: 1000;
         padding: 16px 0;
     }
 
@@ -156,42 +155,39 @@
       gap: 16px;
     }
 
-.logo {
-  display: inline-flex;
-  align-items: center;
-  height: 45px; /* Mantém a altura proporcional ao texto de 1.4rem */
-  z-index: 102;
-}
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      height: 45px;
+      z-index: 102;
+    }
 
-.logo img {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-}
+    .logo img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
 
-.footer .logo { 
-  display: inline-block;
-  margin-bottom: 12px; /* Dá uma distância do conteúdo abaixo */
-}
+    .footer .logo { 
+      display: inline-block;
+      margin-bottom: 12px;
+    }
 
-
-.footer .logo img {
-  height: 65px; /* Aumenta a altura da imagem (ajuste para o tamanho desejado, ex: 50px, 60px) */
-  width: auto;
-}
+    .footer .logo img {
+      height: 65px;
+      width: auto;
+    }
 
     .logo span {
       color: var(--accent-yellow);
     }
 
-    /* Alinhamento do botão e menu no lado direito */
     .header-actions {
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    /* Botão Hambúrguer */
     .menu-toggle {
       display: flex;
       flex-direction: column;
@@ -213,7 +209,6 @@
       transition: var(--transition);
     }
 
-    /* Animação do botão quando ativo */
     .menu-toggle.active span:nth-child(1) {
       transform: translateY(9px) rotate(45deg);
     }
@@ -224,7 +219,6 @@
       transform: translateY(-9px) rotate(-45deg);
     }
 
-    /* Overlay escuro no fundo quando o menu abre */
     .menu-overlay {
       position: fixed;
       top: 0;
@@ -244,7 +238,6 @@
       visibility: visible;
     }
 
-    /* Menu Drawer Lateral (Desktop + Mobile) */
     .nav-menu-wrapper {
       position: fixed;
       top: 0;
@@ -303,9 +296,9 @@
     }
 
     .hero-content h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.2;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
     }
@@ -318,7 +311,7 @@
       font-size: clamp(1rem, 2.5vw, 1.15rem);
       color: var(--text-muted);
       margin-bottom: 32px;
-      max-width: 480px;
+      max-width: 520px;
     }
 
     .hero-cta {
@@ -327,35 +320,33 @@
       flex-wrap: wrap;
     }
 
+    .hero-image {
+      width: 100%;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
- /* Container da imagem ajustado (sem borda, sem sombra e sem fundo) */
-.hero-image {
-  width: 100%;
-  height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Regra para a logo se ajustar sem distorção */
-.hero-image img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
+    .hero-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
 
     /* --------------------------------------------------
-       5. Seção Cursos
+       5. Seção Cursos & Instrumentos (Ajuste de Simetria)
     -------------------------------------------------- */
     .cursos {
-      padding: 60px 0;
+      padding: 50px 0;
+      scroll-margin-top: 80px;
     }
 
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 24px;
+      align-items: stretch;
     }
 
     .course-card {
@@ -364,6 +355,9 @@
       border-radius: var(--radius);
       padding: 28px 24px;
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .course-card:hover {
@@ -383,6 +377,7 @@
       justify-content: center;
       font-size: 1.4rem;
       margin-bottom: 18px;
+      flex-shrink: 0;
     }
 
     .course-card h3 {
@@ -394,6 +389,7 @@
     .course-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
+      flex-grow: 1;
     }
 
     /* --------------------------------------------------
@@ -401,6 +397,7 @@
     -------------------------------------------------- */
     .diferenciais {
       padding: 60px 0;
+      scroll-margin-top: 80px;
     }
 
     .features-grid {
@@ -432,14 +429,13 @@
     /* --------------------------------------------------
        7. Rodapé
     -------------------------------------------------- */
-    
-#como-chegar {
-  scroll-margin-top: 90px;
-}
+    #como-chegar {
+      scroll-margin-top: 90px;
+    }
 
     footer, #contato {
-  scroll-margin-top: 80px; /* Compensa a altura do cabeçalho fixo */
-}
+      scroll-margin-top: 80px;
+    }
     
     .footer {
       border-top: 1px solid var(--border);
@@ -465,80 +461,77 @@
       padding-top: 20px;
     }
 
-  
-.footer-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-.footer-email {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
+    .footer-email {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
 
-.footer-location {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 320px;
-}
+    .footer-location {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 320px;
+    }
 
-.footer-location h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--accent-yellow);
-}
+    .footer-location h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-yellow);
+    }
 
-.footer-location p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
+    .footer-location p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
 
-.footer-location p i {
-  color: var(--pastel-blue);
-  margin-right: 6px;
-}
+    .footer-location p i {
+      color: var(--pastel-blue);
+      margin-right: 6px;
+    }
 
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--pastel-blue);
-  font-size: 0.88rem;
-  font-weight: 600;
-  margin-top: 4px;
-  transition: var(--transition);
-}
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--pastel-blue);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-top: 4px;
+      transition: var(--transition);
+    }
 
-.map-link:hover {
-  color: var(--accent-yellow);
-  text-decoration: underline;
-}
+    .map-link:hover {
+      color: var(--accent-yellow);
+      text-decoration: underline;
+    }
 
+    .social-icon {
+      font-size: 2.8rem; 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: var(--transition);
+    }
 
-.social-icon {
-  font-size: 2.8rem; 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;       /* Mantém uma área de toque confortável */
-  height: 44px;
-  transition: var(--transition);
-}
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: var(--accent-yellow);
+    }
 
-.social-icon:hover {
-  transform: translateY(-3px) scale(1.1); /* Dá um leve destaque ao passar o mouse */
-  color: var(--accent-yellow);
-}
-
-.social-links {
-  display: flex;
-  align-items: center;
-  gap: 24px; /* Aumente este valor (ex: 30px ou 32px) para afastar mais um ícone do outro */
-}
-
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
     /* --------------------------------------------------
        8. Ajustes de Responsividade
@@ -596,12 +589,9 @@
         <img src="logoHeader.png" alt="Nossa Música">
       </a>
       
-      <!-- Lado direito do topo: Botão "Aula Experimental" + Ícone do Menu Hambúrguer -->
       <div class="header-actions">       
-      
         <a href="https://wa.me/5521988748984?text=Quero%20fazer%20aula%20experimental!" target="_blank" class="btn btn-primary header-cta">Aula Experimental</a>
 
-        <!-- 3. Botão Hambúrguer do Menu -->
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
           <span></span>
           <span></span>
@@ -609,10 +599,11 @@
         </button>
       </div>
 
-      <!-- Menu Drawer Lateral (Apenas os tópicos de navegação) -->
+      <!-- Menu Drawer Lateral -->
       <div class="nav-menu-wrapper" id="navMenu">
         <nav>
           <ul class="nav-links">
+            <li><a href="#instrumentos" class="nav-item">Venha Aprender</a></li>
             <li><a href="#cursos" class="nav-item">Cursos</a></li>
             <li><a href="#diferenciais" class="nav-item">Diferenciais</a></li>
             <li><a href="#contato" class="nav-item">Contato</a></li>
@@ -623,29 +614,29 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Atualizada) -->
   <section class="container hero">
     <div class="hero-content">
-      <h1>Sinta e viva a música na sua <span>essência</span>.</h1>
-      <p>Aulas personalizadas de instrumentos e teoria musical com uma metodologia prática, moderna e um ambiente feito para fluir sua criatividade.</p>
+      <h1>Descubra o prazer de tocar seu instrumento favorito no coração da <span>Região Portuária do Rio</span></h1>
+      <p>Aulas presenciais, personalizadas e sem complicação. Venha fazer sua primeira aula experimental, sem precisar de experiência prévia.</p>
       <div class="hero-cta">
-        <a href="#cursos" class="btn btn-primary">Conhecer Cursos</a>
-        <a href="#diferenciais" class="btn btn-secondary">Nossa Metodologia</a>
+        <a href="https://wa.me/5521988748984?text=Quero%20agendar%20minha%20aula%20experimental!" target="_blank" class="btn btn-primary">Aula Experimental</a>
+        <a href="#instrumentos" class="btn btn-secondary">Conhecer Instrumentos</a>
       </div>
     </div>
     <div class="hero-image">
-      <img src="logomarca.png" alt="Logo">
+      <img src="logomarca.png" alt="Logo Nossa Música">
     </div>
   </section>
 
-  <!-- Cursos -->
-  <section id="cursos" class="container cursos">
+  <!-- Seção 1: Venha Aprender (Instrumentos) -->
+  <section id="instrumentos" class="container cursos">
     <div class="section-header">
-      <h2>Nossos <span>Cursos</span></h2>
-      <p>Formações pensadas para todos os níveis, do iniciante ao avançado.</p>
+      <h2>Venha <span>Aprender</span></h2>
+      <p>Aulas de instrumentos e práticas para todos os níveis e estilos.</p>
     </div>
+
     <div class="courses-grid">
-      
       <!-- Violão -->
       <div class="course-card">
         <div class="course-icon">🎸</div>
@@ -687,52 +678,73 @@
         <h3>Contrabaixo</h3>
         <p>Crie conduções marcantes, domine o groove, técnicas de slap e a conexão perfeita com a bateria.</p>
       </div>
-     
+
+      <!-- Saxofone & Sopros -->
+      <div class="course-card">
+        <div class="course-icon">🎷</div>
+        <h3>Saxofone & Sopros</h3>
+        <p>Técnica de embocadura, controle de coluna de ar, sonoridade e improvisação na prática.</p>
+      </div>
+
       <!-- Prática de Conjunto / Banda -->
       <div class="course-card">
         <div class="course-icon">🎼</div>
-         <h3>Prática em Grupo & Banda</h3>
-         <p>Aprenda a tocar em conjunto com outros músicos, desenvolvendo a escuta, a afinação coletiva e a presença no palco.</p>
+        <h3>Prática em Grupo & Banda</h3>
+        <p>Aprenda a tocar em conjunto com outros músicos, desenvolvendo a escuta, a afinação coletiva e a presença no palco.</p>
       </div>
+    </div>
+  </section>
 
+  <!-- Seção 2: Nossos Cursos -->
+  <section id="cursos" class="container cursos" style="padding-top: 20px;">
+    <div class="section-header">
+      <h2>Nossos <span>Cursos</span></h2>
+      <p>Programas de desenvolvimento contínuo e vivências musicais por faixa etária e formato.</p>
+    </div>
+
+    <div class="courses-grid">
       <div class="course-card">
         <div class="course-icon">🎹</div>
         <h3>Amor Perfeito</h3>
         <p>1 a 4 Anos. Nossos alunos aprendem a manusear os instrumentos e explorar o mundo musical através de canções e atividades sensoriais.</p>
       </div>
+
       <div class="course-card">
         <div class="course-icon">🎸</div>
         <h3>Teto Estrelado</h3>
         <p>5 a 8 anos. Nossos alunos exploram mais profundamente o universo musical, apurando seus gostos, repertórios e habilidades psicomotoras até o momento da escolha do seu instrumento preferido.</p>
       </div>
+
       <div class="course-card">
         <div class="course-icon">🎙️</div>
         <h3>Ninho</h3>
         <p>9 a 12 anos. Nossos alunos se organizam em diversos tipos de bandas brasileiras e se apropriam de nossos ritmos e saberes por meio da musica e de nossos instrumentos musicais.</p>
       </div>
+
       <div class="course-card">
         <div class="course-icon">🥁</div>
         <h3>Pé de Vento</h3>
-        <p>13 a 17 anos. Nossos alunos se desenvolvem profundamente no instrumento de sua escolha, em formato de grupo onde a troca e a escuta vão para além da música. O repertório brasileiro atual é o grande aliado, sendo tão interessante quanto à sua escuta no fone de ouvido</p>
+        <p>13 a 17 anos. Nossos alunos se desenvolvem profundamente no instrumento de sua escolha, em formato de grupo onde a troca e a escuta vão para além da música. O repertório brasileiro atual é o grande aliado, sendo tão interessante quanto à sua escuta no fone de ouvido.</p>
       </div>
+
       <div class="course-card">
         <div class="course-icon">🎻</div>
         <h3>Carne e Osso</h3>
-        <p>Aulas partirculares desde iniciantes a avançados.</p>
+        <p>Aulas particulares desde iniciantes a avançados.</p>
       </div>
-         <div class="course-card">
+
+      <div class="course-card">
         <div class="course-icon">🎸</div>
         <h3>Nossa Casa</h3>
-        <p>Aula em grupo no seu instrumento ou formato de banda</p>
+        <p>Aula em grupo no seu instrumento ou formato de banda.</p>
       </div>
-         <div class="course-card">
+
+      <div class="course-card">
         <div class="course-icon">🎼</div>
         <h3>Imenso Cordão</h3>
         <p>Grupo vocal para iniciantes até avançado.</p>
       </div>
-   
     </div>
-    
   </section>
 
   <!-- Diferenciais -->
@@ -758,36 +770,36 @@
   </section>
 
   <!-- Rodapé -->
-<footer id="contato" class="footer">
+  <footer id="contato" class="footer">
     <div class="container" style="padding-bottom: 20px;">
-     <div class="footer-content">
-      <div class="footer-brand">
-        <div class="logo"> <img src="logoHeader.png" alt="Nossa Música"></div>
-        <div class="social-links">
-          <a href="https://wa.me/5521988748984?text=Olá%20quero%20mais%20Informações!" target="_blank" aria-label="WhatsApp" class="social-icon wa">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a href="https://instagram.com/nossamusica.escola" target="_blank" aria-label="Instagram" class="social-icon ig">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo"> <img src="logoHeader.png" alt="Nossa Música"></div>
+          <div class="social-links">
+            <a href="https://wa.me/5521988748984?text=Olá%20quero%20mais%20Informações!" target="_blank" aria-label="WhatsApp" class="social-icon wa">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/nossamusica.escola" target="_blank" aria-label="Instagram" class="social-icon ig">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
         </div>
+        <p class="footer-email">contato@nossamusicabr.com.br</p>
       </div>
-      <p class="footer-email">contato@nossamusicabr.com.br</p>
-    </div>
 
-    <div class="footer-location" id="como-chegar">
-          <h3>Como Chegar</h3>
-          <p><i class="fa-solid fa-location-dot"></i> Rua. Equador, 43 - lj 115  - Santo Cristo, Rio de Janeiro - RJ</p>
-          <a href="https://maps.google.com/?q=Rua.+Equador,+43+-+lj+115+-+Santo+Cristo,+Rio+de+Janeiro+-+RJ" target="_blank" class="map-link">
-            Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-    </div>
+      <div class="footer-location" id="como-chegar">
+        <h3>Como Chegar</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Rua. Equador, 43 - lj 115  - Santo Cristo, Rio de Janeiro - RJ</p>
+        <a href="https://maps.google.com/?q=Rua.+Equador,+43+-+lj+115+-+Santo+Cristo,+Rio+de+Janeiro+-+RJ" target="_blank" class="map-link">
+          Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
 
-    <div class="footer-copy">
-      <p>© 2026 Nossa Música Escola de Música. Todos os direitos reservados.</p>
+      <div class="footer-copy">
+        <p>© 2026 Nossa Música Escola de Música. Todos os direitos reservados.</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
   <!-- Script JS para Controle do Menu Drawer -->
   <script>
